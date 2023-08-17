@@ -26,7 +26,7 @@ namespace Cadastros.Data.Repository
             return await Buscar(p => p.FornecedorId == fornecedorId);
         }
 
-        public async Task<IEnumerable<Produto>> ObterProdutosPorFornecedores()
+        public async Task<IEnumerable<Produto>> ObterProdutosFornecedores()
         {
             return await _db.produtos.AsNoTracking().Include(f => f.Fornecedor)
                    .OrderBy(p => p.Nome).ToListAsync();

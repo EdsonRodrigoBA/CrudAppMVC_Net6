@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CadastroProdutos.WebApp.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Cadastra Novo</a>
+</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Imagem</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedor.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <img src="~/imagens/@item.Imagem" alt="@item.Imagem" style="width: 70px; height:70px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+                </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+
+            <td class="text-right">
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="fa-solid fa-user"></i></a>
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id"><i class="fa-solid fa-search"></i></a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using CadastroProdutos.WebApp.ViewModels;
 
 namespace CadastroProdutos.WebApp.Data
 {
@@ -9,5 +10,7 @@ namespace CadastroProdutos.WebApp.Data
             : base(options)
         {
         }
+        public DbSet<CadastroProdutos.WebApp.ViewModels.FornecedorViewModel>? FornecedorViewModel { get; set; }
+        public DbSet<CadastroProdutos.WebApp.ViewModels.ProdutoViewModel>? ProdutoViewModel { get; set; }
     }
 }

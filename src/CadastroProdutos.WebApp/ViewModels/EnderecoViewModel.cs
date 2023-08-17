@@ -37,7 +37,7 @@ namespace CadastroProdutos.WebApp.ViewModels
         public string Estado { get; set; }
 
         /* EF Relation */
-        public FornecedorViewModel Fornecedor { get; set; }
+        public FornecedorViewModel ? Fornecedor { get; set; }
 
         [HiddenInput]
         public Guid FornecedorId { get; set; }
